@@ -29,13 +29,13 @@ const BarChart = ({ data }) => {
 
         // Crio gráficos de eixos x e y
         const xAxis = d3.axisBottom(xScale);
-        const yAxis = d3.axisRight(yScale);
+        const yAxis = d3.axisLeft(yScale);
 
         // Criação e formatação das barras
         svg.selectAll("rect")
             .data(data)
             .join("rect")
-            .attr("x", (_, index) => xScale(index)) // Pos x
+            .attr("x", (_, index) => xScale(index) + 30) // Pos x
             .attr("y", value => yScale(value) + 10) // Pos y
             .attr("width", xScale.bandwidth()) // Largura
             .attr("height", value => 300 - yScale(value)) // Altura
@@ -43,11 +43,11 @@ const BarChart = ({ data }) => {
 
         // Adiciona ao svg os eixos como gráficos (g)
         svg.append("g")
-            .attr("transform", "translate(0, 310)")
+            .attr("transform", "translate(30, 310)")
             .call(xAxis);
 
         svg.append("g")
-            .attr("transform", "translate(300, 10)")
+            .attr("transform", "translate(30, 10)")
             .call(yAxis);
     }, [data]);
 

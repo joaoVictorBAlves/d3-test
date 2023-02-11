@@ -1,5 +1,7 @@
 import BarChart from "../components/BarChart";
 import Histogram from "../components/Histogram";
+import Shape from "../components/Shape";
+import Xadrez from "../components/Xadrez";
 import data from "../data/unemployment.json"
 
 const gerarNumeros = (qtd = 5, min = 0, max = 10) => {
@@ -25,6 +27,12 @@ const Home = () => {
       <h2 style={{ textAlign: "center" }}>Histograma</h2>
       <div className="group">
         <Histogram data={rateOfUnemployment} />
+      </div>
+      <h2 style={{ textAlign: "center" }}>Formas SVG</h2>
+      <div className="group">
+        <Xadrez />
+        <br />
+        {/* <Shape /> */}
       </div>
     </div>
   );
